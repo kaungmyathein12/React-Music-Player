@@ -12,13 +12,13 @@ const Btns = ({
 }) => {
   useEffect(() => {
     player?.addEventListener("ended", () => {
-      if (selectedData.id !== musicListLength - 1) {
-        renderData(selectedData.id + 1);
-      } else {
+      if (selectedData.id === musicListLength - 1) {
         renderData(0);
+      } else {
+        renderData(selectedData.id + 1);
       }
     });
-  }, [player]);
+  }, [selectedData]);
   return (
     <>
       {selectedData && (
