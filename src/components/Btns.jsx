@@ -8,7 +8,6 @@ const Btns = ({
   setPlay,
   playMusic,
   pauseMusic,
-  player,
 }) => {
   return (
     <>
@@ -17,12 +16,13 @@ const Btns = ({
           <i
             className="ri-skip-back-mini-fill"
             onClick={() => {
-              setPlay(true);
+              setPlay(false);
               if (selectedData.id !== 0) {
                 renderData(selectedData.id - 1);
               } else {
                 renderData(musicListLength - 1);
               }
+              playMusic();
             }}></i>
           {play ? (
             <i
@@ -41,12 +41,13 @@ const Btns = ({
           <i
             className="ri-skip-forward-mini-fill"
             onClick={() => {
-              setPlay(true);
+              setPlay(false);
               if (selectedData.id !== musicListLength - 1) {
                 renderData(selectedData.id + 1);
               } else {
                 renderData(0);
               }
+              playMusic();
             }}></i>
         </div>
       )}

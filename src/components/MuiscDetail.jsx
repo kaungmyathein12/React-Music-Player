@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-const MuiscDetail = ({ selectedData }) => {
+const MuiscDetail = ({ selectedData, duration, getTime }) => {
   return (
     <div className="flex flex-row space-x-6">
       {selectedData && (
@@ -13,14 +13,14 @@ const MuiscDetail = ({ selectedData }) => {
               {selectedData.title}
             </h3>
             <h4 className="my-2">
-              Singer/Band -{" "}
-              <span className="text-indigo-500 font-bold">
+              Singer/Band{" "}
+              <span className="bg-green-500 text-black px-2 py-1 rounded font-bold ">
                 {selectedData.singer}
               </span>
             </h4>
-            <div className="flex flex-row justify-start items-center">
+            <div className="flex flex-row justify-start items-start">
               <i className="ri-timer-line mr-2"></i>
-              <span>{selectedData.duration}</span>
+              <span>{getTime(duration)}</span>
             </div>
           </div>
         </>

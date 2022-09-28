@@ -1,10 +1,10 @@
 import React from "react";
 
-const Progress = () => {
+const Progress = ({ duration, getTime }) => {
   return (
     <div className="mt-8 flex flex-row justify-start items-center space-x-4">
       <div className="flex flex-row justify-start items-center grow space-x-4">
-        <span>2:04</span>
+        <span>{getTime(duration)}</span>
         <div className="bg-neutral-700 grow h-1">
           <div className="h-full w-2/5 bg-indigo-500"></div>
         </div>
