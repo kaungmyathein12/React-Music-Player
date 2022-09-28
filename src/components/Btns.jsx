@@ -1,14 +1,24 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 const Btns = ({
   selectedData,
   renderData,
   musicListLength,
   play,
+  player,
   setPlay,
   playMusic,
   pauseMusic,
 }) => {
+  useEffect(() => {
+    player?.addEventListener("ended", () => {
+      if (selectedData.id !== musicListLength - 1) {
+        renderData(selectedData.id + 1);
+      } else {
+        renderData(0);
+      }
+    });
+  }, [player]);
   return (
     <>
       {selectedData && (

@@ -1,12 +1,20 @@
 import React from "react";
 
-const MusicList = ({ selectedData, musicList, selectMusic, setPlay }) => {
+const MusicList = ({
+  selectedData,
+  musicList,
+  selectMusic,
+  setPlay,
+  setError,
+}) => {
   return (
     <div className="overflow-hidden overflow-x-scroll mt-5 mb-5">
       {selectedData && (
         <div className="py-4 min-w-fit flex flex-row items-center overflow-hidden space-x-4 ">
           <div className="w-10 h-10 border-2 border-neutral-400 rounded-full grid place-items-center">
-            <i className="ri-add-fill text-2xl text-neutral-300"></i>
+            <i
+              className="ri-add-fill text-2xl text-neutral-300"
+              onClick={() => setError(true)}></i>
           </div>
           {musicList &&
             musicList.length > 0 &&
